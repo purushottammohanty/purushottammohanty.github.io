@@ -2,10 +2,7 @@
 title: Purushottam Mohanty
 url: "https://purushottammohanty.github.io"
 
-github: [metadata]
 email: purushottam.mohanty@gmail.com
-
-
 
 #remote_theme: "mmistakes/minimal-mistakes@4.21.0"
 theme: minimal-mistakes-jekyll
@@ -37,4 +34,5 @@ author:
   bio    :
     Data Associate, Good Business Lab
 
-include: ["_pages"]
+include: 
+  - _pages
