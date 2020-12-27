@@ -33,5 +33,4 @@ author:
   bio    :
     Data Associate, Good Business Lab
 
-include:
-  - _pages
+include: ["_pages"]
