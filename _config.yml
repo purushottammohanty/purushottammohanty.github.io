@@ -21,6 +21,10 @@ author:
   avatar : "/assets/images/profile_pic.jpeg"
   bio    :
     Data Associate, Good Business Lab
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:purushottam.mohanty@gmail.com"
 
 include: 
   - _pages
