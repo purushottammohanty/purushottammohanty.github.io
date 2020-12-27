@@ -1,0 +1,14 @@
+.Rproj.user/*
+*.Rproj
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user
+.DS_Store
+
+**/cache/
+_site
+.sass-cache
+.jekyll-metadata
+Gemfile.lock
+.Rproj.user
