@@ -3,6 +3,8 @@ permalink: /
 title: "Welcome"
 author_profile: true
 classes: wide
+header:
+  image: /assets/images/PSE_widescreen.jpeg
 ---
 
 I am an aspiring economist, curently working as a Data Associate at Good Business Lab. 

@@ -25,6 +25,12 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
       url: "mailto:purushottam.mohanty@gmail.com"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/p_purushottam"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/purushottammohanty"
 
 include: 
   - _pages
