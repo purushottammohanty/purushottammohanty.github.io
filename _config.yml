@@ -4,10 +4,11 @@ title: Purushottam Mohanty
 email: purushottam.mohanty@gmail.com
 
 #remote_theme: "mmistakes/minimal-mistakes@4.21.0"
+theme: minimal-mistakes-jekyll
 
 # Build settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
+#remote_theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: "default" #"default" "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
 # Outputting
 permalink: /:categories/:title/
