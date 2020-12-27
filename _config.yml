@@ -1,5 +1,5 @@
 
-title: Grant R. McDermott
+title: Purushottam Mohanty
 
 email: purushottam.mohanty@gmail.com
 
@@ -22,3 +22,7 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+
+
+author:
+  name   : "Purushottam Mohanty"
