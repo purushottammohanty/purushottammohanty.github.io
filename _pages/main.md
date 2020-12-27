@@ -11,3 +11,5 @@ I aim to use large datasets to answer interesting socio-economic questions. I am
 
 Previously, I graduated from University of Delhi with a B.A. (Hons) in Economics. Thereafter, I pursued my masters in Analysis and Policy in Economics (APE) at the Paris School of Economics.
 
+Thank You for visiting my page!
+
