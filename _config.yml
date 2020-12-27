@@ -8,7 +8,7 @@ theme: minimal-mistakes-jekyll
 
 # Build settings
 markdown: kramdown
-minimal_mistakes_skin: "dirt" #"default" "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
+minimal_mistakes_skin: "default" #"default" "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
