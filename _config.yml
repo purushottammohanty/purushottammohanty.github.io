@@ -8,6 +8,7 @@ email: purushottam.mohanty@gmail.com
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: "default" #"default" "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
@@ -26,3 +27,6 @@ plugins:
 
 author:
   name   : "Purushottam Mohanty"
+
+include:
+  - _pages
