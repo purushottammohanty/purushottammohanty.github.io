@@ -34,11 +34,12 @@ author:
 
 include: 
   - _pages
+  - _posts
 
 defaults:
   # _posts
   - scope:
-      path: "_pages"
+      path: "_posts"
       type: posts
     values:
       layout: single
