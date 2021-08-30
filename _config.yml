@@ -8,7 +8,7 @@ url: "https://purushottammohanty.github.io"
 
 # Build settings
 remote_theme: "mmistakes/minimal-mistakes@4.21.0"
-minimal_mistakes_skin: "dirt" #"default" "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
+minimal_mistakes_skin: "contrast" #"default" "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
 
 
 # Plugins (previously gems:)
@@ -20,7 +20,7 @@ author:
   name   : "Purushottam Mohanty"
   avatar : "/assets/images/profile_pic.jpeg"
   bio    :
-    Data Associate, Good Business Lab
+    Data Associate, Good Business Lab     
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
@@ -38,7 +38,7 @@ include:
 defaults:
   # _posts
   - scope:
-      path: ""
+      path: "_pages"
       type: posts
     values:
       layout: single
