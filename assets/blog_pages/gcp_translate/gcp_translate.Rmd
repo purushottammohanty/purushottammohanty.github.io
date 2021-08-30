@@ -1,8 +1,10 @@
 ---
 title: "Translate using Google Cloud Platform (GCP) Translation API"
-author: "Purushottam Mohanty"
-date: "30/08/2021"
-output: 
+author: 
+  - Purushottam Mohanty [[email]](purushottam.mohanty@gmail.com) [[github]](https://github.com/purushottammohanty)
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
   html_document:
     theme: cosmo
     highlight: tango
@@ -26,10 +28,17 @@ Google provides an official translation API for Python and that is what the foll
 3. Then click billing and then setup billing for the project. You would ideally need your credit card to set it up. (Don't worry you will not be charged for any request beyond your quota unless to move to a paid account. The APIs will provide an error if you exceed your quota and will not proceed further without converting to a paid account.) Additionally, at the time of writing this post, Google provided a joining credit of 300 USD which can be used.         
 4. Once billing has been setup, select the "APIs and Services" option in the right side menu and search for "Translate API" and click "Enable".  
 5. Select "IAM and Admin" and then "Service Account".       
-6. Create a Service Account and then create keys. (The keys automatically get downloaded as a json file. You cannot download the keys again so keep it somewhere safe in your local machine.)
-
+6. Create a Service Account and then create keys. (The keys automatically get downloaded as a json file. You cannot download the keys again so keep it somewhere safe in your local machine.)       
+    
+Then we shall download the required packages directly from terminal in case you haven't downloaded these previously. Simply run these code in terminal. 
+```{r, eval = FALSE}
+$ python3 -m pip install pandas
+$ python3 -m pip install numpy
+$ python3 -m pip install google-cloud-translate
+```
 
 ### Import Necessary Packages
+Now run the following chunk directly in Python to import the libraries. 
 ```{python, eval=FALSE}
 import pandas as pd
 import numpy as np
