@@ -58,6 +58,7 @@ defaults:
       classes: wide
       author_profile: true
 
+exclude: ['*.Rmd']
 
 
       
