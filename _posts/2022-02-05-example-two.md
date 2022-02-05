@@ -12,6 +12,20 @@ from an author profile in Google Scholar.
 For this example, I use names of Stanford Computer Science faculty
 members .
 
+``` 
+# Stanford CS Faculty
+htmlpage = read_html("https://cs.stanford.edu/directory/faculty")
+
+# regular faculty
+faculty = htmlpage %>%
+  html_elements(xpath = '//*[@id="node-113"]/div/div[1]/div/div/table[1]') %>%
+  html_table() %>%
+  .[[1]] %>%
+  as.data.frame()
+
+# dataframe headers
+names(faculty) = c("name", "phone", "office", "email_prefix")
+```
 
 ## Function to Get Faculty Publications from Google Scholar
 
