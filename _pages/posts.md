@@ -1,6 +1,6 @@
 ---
-permalink: /blog/
-title: "Blog"
+permalink: /posts/
+title: "Posts"
 ---
 	 	 	
 ------------------------------------------------   
