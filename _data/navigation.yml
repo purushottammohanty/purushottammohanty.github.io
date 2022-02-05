@@ -5,5 +5,7 @@ main:
     url: /research/
   - title: "Posts"
     url: /posts/
+  - title: "Blog"
+    url: /blog/
   - title: CV
     url: "https://drive.google.com/file/d/1JuZbv_MELCAdeSG09y-uQ-1nLasu_vSL/view?usp=sharing"

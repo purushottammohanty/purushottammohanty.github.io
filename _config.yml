@@ -20,7 +20,7 @@ author:
   name   : "Purushottam Mohanty"
   avatar : "/assets/images/profile_pic.jpeg"
   bio    :
-    Data Associate, Good Business Lab     
+    Senior Data Associate, Good Business Lab     
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
@@ -39,11 +39,10 @@ include:
 defaults:
   # _posts
   - scope:
-      path: "_posts"
+      path: ""
       type: posts
     values:
       layout: single
-      classes: wide
       author_profile: true
       read_time: true
       comments: true
