@@ -10,9 +10,9 @@ from an author profile in Google Scholar.
 ## Extract List of Faculty Names
 
 For this example, I use names of Stanford Computer Science faculty
-members .
+members.
 
-{% highlight r %}
+```r
 # Stanford CS Faculty
 htmlpage = read_html("https://cs.stanford.edu/directory/faculty")
 
@@ -25,7 +25,7 @@ faculty = htmlpage %>%
 
 # dataframe headers
 names(faculty) = c("name", "phone", "office", "email_prefix")
-{% highlight r %}
+```
 
 
 ## Function to Get Faculty Publications from Google Scholar
