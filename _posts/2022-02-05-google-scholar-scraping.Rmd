@@ -1,13 +1,12 @@
 ---
 title: 'Web Scraping Publications from Google Scholar'
+excerpt: 'Extract title, citation count and year of publications for an author from Google Scholar.'
 author: "Purushottam Mohanty"
 date: "06/02/2022"
 output:
-  prettydoc::html_pretty:
-    theme: leonids
-    highlight: github
-  md_document:
-    variant: markdown_github
+  html_document:
+    theme: lumen
+    highlight: pygments
 ---
 
 This post shows how to extract title (including co-authors and journal), citation count and year of publication for all available publications from an author profile in Google Scholar. 
