@@ -1,0 +1,54 @@
+---
+title: 'Applying for J1 Visa in India'
+excerpt: 'I am sharing my J1 visa application experience.'
+author: "Purushottam Mohanty"
+date: "06/02/2022"
+output:
+  html_document:
+    theme: lumen
+    highlight: pygments
+---
+
+The visa application process can be confusing especially for fresh applicants from India. I'm writing the following blog to share my experience. I hope it is helpful for future applicants. Note that, I was applying for a J1 Research Scholar visa for a fully funded position at University of Chicago. You're case might be different so please be careful while referring to this blog.
+
+## Step 1: Receiving the DS-2019 Form
+Congratulations! You have received an offer from an university/organisation who is willing to sponsor you as a research scholar. The organisation will physically mail you a document referred to as DS-2019 which contains all the relevant details of the program. This document is generated when the international office of the university fills in all the relevant program information in the Student and Exchange Visitor Information System (SEVIS). The document includes your SEVIS ID, official program start and end date, sponsor name, program number, financial funding along with several other details.         
+    
+Note: Please verify all the details written on the document and check for any mistakes or spelling errors. If you spot any mistakes or have any questions reach out to the international office of your university and get it clarified.  
+
+## Step 2: Pay SEVIS Fee
+The next step involves paying the mandatory SEVIS fee. You can do so at https://www.fmjfee.com/i901fee/index.html. As a J1 research scholar, the fee is 220$. You can pay the fee using any credit card. This payment confirmation is also called as I-901 Fee as well.
+
+## Step 3: Complete DS-160 Form
+The next step involves filling the non-immigrant visa form, called the DS-160. It's an extensive form and can take up to an hour to fill. Once you start filling the form, make sure to note down the form number and save it after each step as the website automatically logs you out after a few minutes. It can be annoying, so take your time and fill the form carefully and accurately. I will not go through each section in detail but you'll find several websites and YouTube videos which do so. Once you have completed the DS-160 form, please download the confirmation page as well a copy of the submitted answers. The confirmation page is mandatory for attending visa interviews.              
+      
+Note: Irrespective of what anyone says, be honest while filling the form. Make sure you fill in all details correctly and check multiple times for any spelling errors. Answer the question about immediate family members in the US honestly. 
+
+## Step 4: Booking the Appointment
+Visit the CGI Federal portal and register yourself using all relevant details. Be careful while filling in your name and other details. Make sure to correctly select the visa category (J1) and sub-category (Research Scholar). Don't worry about the location that automatically selects based on your residence address, you can select the embassy/consulate location for the interview later. The next step is to pay the MRV fee which can be paid through NEFT or physically at an Axis Bank branch. The account that you pay to is an unique account specifically for you so no receipt is generated and the payment status automatically reflects on the portal within 12-24 hours. Thereafter, you can proceed to book the VAC (Visa Application Centre) appointment and correspondingly the VI (Visa Interview) appointment.         
+      
+Note: VAC and VI appointment has to be booked simultaneously. It's important to remember that only 3-4 logins a day are allowed. Also, each login must not exceed 12-14 clicks. Too much activity will result in blocking you account for 72 hours. 
+
+## VAC (New Delhi)
+On the day of the VAC, simply carry your DS-160 confirmation page, your appointment confirmation and your passport. It is advisable to also carry your DS-2019, SEVIS fee receipt as well any previous passports. At the VAC, once shall submit his/her biometrics (fingerprint) as well get a photo taken. 
+
+## VI (New Delhi)
+On the day of VI, carry your appointment confirmation, DS-160, DS-2019, SEVIS fee receipt and your passport. You will be asked questions about the program that you are going for and questions about your education background.
+      
+      
+### My Experience
+While most of the process is standard, the final step of booking an appointment can be stressful since appointments aren't available all the time. Joining public telegram groups for visa slots are helpful since people post updates about slot availability on a regular basis. Unfortunately, when I was looking for appointments there wasn't any available. I had to apply for an emergency appointment which was fortunately approved. The exact process for an emergency appointment is listed below along with what I wrote while making the request. 
+
+### Emergency Appointment
+If visa interview slots are unavailable before 60 days of the start of your program, you may apply for an emergency appointment (EA). You shall qualify for an EA if regular appointments aren't available before the start of your program and you are within 60 day period before start date. However, in order to apply for an EA, one has to first book a regular appointment at any future date. Some of these placeholder appointments are a couple of years into the future as well. It doesn't matter for which date the appointment is, it should simply be after the program start date. Thereafter, one can make a request for an EA which may or may not be approved. If your request is approved, then you will get an option to book another appointment as new slots will be made available for you.    
+      
+Here's what I exactly wrote for my EA request,            
+1. I will be joining the prestigious University of Chicago as a Research Scholar (J1) at the Becker Friedman Institute for Economics.    
+2. My program start date is 1 June, 2022 (as per DS-2019) and the position is completely offline and requires my physical presence in the research lab.    
+3. I plan to arrive in the US, a week prior to my start date to carry out necessary admin procedures which would allow me to start on time.    
+4. Currently there are no available slots and as per Embassy new slots are supposed to open in mid-May for June appointments which is too late in my case. I hope that you accept my request for an emergency appointment which would allow me to start my program on time.   
+5. Please find attached my DS-2019, Offer Letter, SEVIS Fee and DS-160 confirmation. 
+
+
+
+
