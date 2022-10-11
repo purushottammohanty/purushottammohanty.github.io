@@ -7,7 +7,7 @@ header:
   image: /assets/images/chicago_widescreen.jpg
 ---
 
-I am a Research Professional (predoc) in economics at the [Becker Friedman Institute for Economics](https://bfi.uchicago.edu), University of Chicago. I am working with Prof. [Oeindrila Dube](http://odube.net) on topics in development economics and political economy.  
+I am a Research Professional (predoc) in economics at the [Becker Friedman Institute for Economics](https://bfi.uchicago.edu), University of Chicago. I am working with [Prof. Oeindrila Dube](http://odube.net) on topics in development economics and political economy.  
 
 I am interested in quasi-experimental research using large datasets to answer interesting socio-economic questions. I am broadly interested in development economics, labour economics and political economy. 
 
