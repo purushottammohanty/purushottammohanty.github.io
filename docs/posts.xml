@@ -14,15 +14,15 @@
 <title>Quarto Academic</title>
 <link>https://drganghe.github.io/quarto-academic-website-template/posts.html</link>
 </image>
-<generator>quarto-1.6.40</generator>
-<lastBuildDate>Tue, 15 Oct 2024 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.5.57</generator>
+<lastBuildDate>Mon, 14 Oct 2024 18:30:00 GMT</lastBuildDate>
 <item>
   <title>Quarto Academic Website Examples and Tips</title>
   <link>https://drganghe.github.io/quarto-academic-website-template/</link>
   <description>Examples and tips for Quarto Academic Website</description>
   <category>news</category>
   <guid>https://drganghe.github.io/quarto-academic-website-template/</guid>
-  <pubDate>Tue, 15 Oct 2024 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 14 Oct 2024 18:30:00 GMT</pubDate>
   <media:content url="https://drganghe.github.io/quarto-academic-website-template/files/images/placeholder4.JPG" medium="image"/>
 </item>
 <item>
@@ -52,7 +52,7 @@ https://quarto.org/docs/authoring/includes.html
   <category>event</category>
   <category>presentation</category>
   <guid>https://drganghe.github.io/quarto-academic-website-template/posts/event-title/</guid>
-  <pubDate>Tue, 03 Sep 2024 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 02 Sep 2024 18:30:00 GMT</pubDate>
   <media:content url="https://drganghe.github.io/quarto-academic-website-template/files/images/placeholder2.JPG" medium="image"/>
 </item>
 <item>
@@ -84,8 +84,912 @@ https://quarto.org/docs/authoring/includes.html
  ]]></description>
   <category>news</category>
   <guid>https://drganghe.github.io/quarto-academic-website-template/posts/news-title/</guid>
-  <pubDate>Mon, 24 Jun 2024 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 23 Jun 2024 18:30:00 GMT</pubDate>
   <media:content url="https://drganghe.github.io/quarto-academic-website-template/files/images/placeholder1.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Web Scraping Publications from Google Scholar</title>
+  <dc:creator>Purushottam Mohanty</dc:creator>
+  <link>https://drganghe.github.io/quarto-academic-website-template/posts/2022-02-06-google-scholar-scraping.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This post shows how to extract title (including co-authors and journal), citation count and year of publication for all available publications from an author profile in Google Scholar.</p>
+<section id="extract-list-of-faculty-names" class="level2">
+<h2 class="anchored" data-anchor-id="extract-list-of-faculty-names">Extract List of Faculty Names</h2>
+<p>For this example, I use names of Stanford Computer Science faculty members .</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Stanford CS Faculty</span></span>
+<span id="cb1-2">htmlpage <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_html</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://cs.stanford.edu/directory/faculty"</span>)</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># regular faculty</span></span>
+<span id="cb1-5">faculty <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> htmlpage <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_elements</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xpath =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'//*[@id="node-113"]/div/div[1]/div/div/table[1]'</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_table</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-8">  .[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.data.frame</span>()</span>
+<span id="cb1-10"></span>
+<span id="cb1-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># dataframe headers</span></span>
+<span id="cb1-12"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(faculty) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"name"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"phone"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"office"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"email_prefix"</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="function-to-get-faculty-publications-from-google-scholar" class="level2">
+<h2 class="anchored" data-anchor-id="function-to-get-faculty-publications-from-google-scholar">Function to Get Faculty Publications from Google Scholar</h2>
+<p>The below function first searches the corresponding researcher’s name in Google Scholar and obtains the Google Scholar Author ID for the same. Thereafter, it makes another request to obtain the list of publications from the profile page. Google Scholar uses pagination and only shows up the most cited 100 publications first. Another request is required to be made for the next 100 publications. Since, repeated requests can cause Google to temporarily block requests from an IP address or introduce a CAPTCHA, the function below makes page requests with a 3 second delay. Using this method, we extract the full title of the publication including the names of co-authors and the journal it was published at. Along with the title we also extract the year of publication and the total citation count of the publication.</p>
+<p>Finally, it appends all the data from all the pages and outputs a dataframe. At the time of writing this post, the following method worked without any issue however your mileage may vary depending on how many requests you’re making and at what time you’re making them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># function - get faculty publications with citations and year of publications</span></span>
+<span id="cb2-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># using google scholar search and google scholar author profiles</span></span>
+<span id="cb2-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># function takes one attribute - name of faculty</span></span>
+<span id="cb2-4">get_faculty_pubs <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(x){ </span>
+<span id="cb2-5">  </span>
+<span id="cb2-6">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># tryCatch skips loops in case of an error (example, if the faculty has no Google Scholar profile)</span></span>
+<span id="cb2-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tryCatch</span>({</span>
+<span id="cb2-8">    </span>
+<span id="cb2-9">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get faculty name</span></span>
+<span id="cb2-10">    faculty_name <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> x</span>
+<span id="cb2-11">    </span>
+<span id="cb2-12">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># split name and tidy search string</span></span>
+<span id="cb2-13">    search_string <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_split</span>(faculty_name, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" "</span>)[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]][<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], </span>
+<span id="cb2-14">                          <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_split</span>(faculty_name, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" "</span>)[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]][<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>], </span>
+<span id="cb2-15">                          <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"+"</span>)</span>
+<span id="cb2-16">    </span>
+<span id="cb2-17">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># gc author search url</span></span>
+<span id="cb2-18">    gc_author_search_url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(</span>
+<span id="cb2-19">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'https://scholar.google.com/citations?view_op=search_authors&amp;hl=en&amp;mauthors='</span>,</span>
+<span id="cb2-20">      search_string, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&amp;btnG="</span>)</span>
+<span id="cb2-21">    </span>
+<span id="cb2-22">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># checks if author is available and gets its Google Scholar ID</span></span>
+<span id="cb2-23">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get author search ID</span></span>
+<span id="cb2-24">    gc_author_id <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_html</span>(gc_author_search_url) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-25">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_elements</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xpath =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'//*[@id="gsc_sa_ccl"]/div/div/a'</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-26">      .[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-27">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_attr</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"href"</span>)</span>
+<span id="cb2-28">    </span>
+<span id="cb2-29">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># gc uses pagination with a maximum return of 100 entries </span></span>
+<span id="cb2-30">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># loop over each page (I loop it over 5 pages or 500 entries) </span></span>
+<span id="cb2-31">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (most faculty don't have greater than 400 publications or above 300 </span></span>
+<span id="cb2-32">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#    there's repeated pubs or working papers without any citations or year)  </span></span>
+<span id="cb2-33">    gc_author_pubs <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lapply</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">300</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>), <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(i){</span>
+<span id="cb2-34">      </span>
+<span id="cb2-35">      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># google scholar author profile url</span></span>
+<span id="cb2-36">      gc_author_url <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://scholar.google.com"</span>, gc_author_id,</span>
+<span id="cb2-37">                             <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&amp;oi=ao"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&amp;cstart="</span>, i, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&amp;pagesize=100"</span>)</span>
+<span id="cb2-38">      </span>
+<span id="cb2-39">      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get html of author profile</span></span>
+<span id="cb2-40">      gc_author_html <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_html</span>(gc_author_url)</span>
+<span id="cb2-41">      </span>
+<span id="cb2-42">      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get all publications of the author</span></span>
+<span id="cb2-43">      gc_author_pubs <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> gc_author_html <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-44">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_elements</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xpath =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'//*[@id="gsc_a_t"]'</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-45">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_table</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-46">        .[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]]</span>
+<span id="cb2-47">      </span>
+<span id="cb2-48">      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># fix column names</span></span>
+<span id="cb2-49">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(gc_author_pubs) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"publication"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"citation_count"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>)</span>
+<span id="cb2-50">      </span>
+<span id="cb2-51">      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># author affiliation for confirmation</span></span>
+<span id="cb2-52">      gc_author_affil <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> gc_author_html <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-53">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_elements</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xpath =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'//*[@id="gsc_prf_i"]/div[2]/a'</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-54">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_text</span>()</span>
+<span id="cb2-55">      </span>
+<span id="cb2-56">      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># add author affiliation</span></span>
+<span id="cb2-57">      gc_author_df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> gc_author_pubs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-58">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">author_affil =</span> gc_author_affil)</span>
+<span id="cb2-59">      </span>
+<span id="cb2-60">      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># add delay of 5 secs (to avoid Google detecting these requests)</span></span>
+<span id="cb2-61">      date_time <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Sys.time</span>()</span>
+<span id="cb2-62">      <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span>((<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.numeric</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Sys.time</span>()) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.numeric</span>(date_time))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>){}</span>
+<span id="cb2-63">      </span>
+<span id="cb2-64">      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get dataframe</span></span>
+<span id="cb2-65">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(gc_author_df)</span>
+<span id="cb2-66">    })</span>
+<span id="cb2-67">    </span>
+<span id="cb2-68">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># append dataset from each page for the same author</span></span>
+<span id="cb2-69">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(gc_author_pubs) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-70">      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># remove unnecessary rows</span></span>
+<span id="cb2-71">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>year <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Year"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb2-72">      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># add faculty name</span></span>
+<span id="cb2-73">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">author =</span> x) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-74">      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># drop error message (after the last publication this error message gets added)</span></span>
+<span id="cb2-75">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>year <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"There are no articles in this profile."</span>)</span>
+<span id="cb2-76">    </span>
+<span id="cb2-77">  }, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">error =</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(e){<span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span>}))</span>
+<span id="cb2-78">  </span>
+<span id="cb2-79">}</span></code></pre></div>
+</div>
+</section>
+<section id="get-publications-for-all-authors" class="level2">
+<h2 class="anchored" data-anchor-id="get-publications-for-all-authors">Get Publications for all Authors</h2>
+<p>I use the author names that I extracted earlier to get all the publications for all the faculties.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># total number of faculty at Stanford with industry affiliation</span></span>
+<span id="cb3-2">n_fac_with_ind_affil <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">NROW</span>(faculty[faculty<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>industry_affil <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'name'</span>])</span>
+<span id="cb3-3"></span>
+<span id="cb3-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get publications for all such professors</span></span>
+<span id="cb3-5">df_final <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lapply</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>n_fac_with_ind_affil, <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(i){</span>
+<span id="cb3-6">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># faculty name</span></span>
+<span id="cb3-7">  fac_name <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> faculty[faculty<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>industry_affil <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'name'</span>][i]</span>
+<span id="cb3-8">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get publications data frame using function built earlier</span></span>
+<span id="cb3-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get_faculty_pubs</span>(fac_name)</span>
+<span id="cb3-10">})</span>
+<span id="cb3-11"></span>
+<span id="cb3-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># append all the data</span></span>
+<span id="cb3-13">df_final <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(df_final)</span></code></pre></div>
+</div>
+<p>Note that some authors do not have a Google Scholar profile. In the case, the function simply outputs a NULL value.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <guid>https://drganghe.github.io/quarto-academic-website-template/posts/2022-02-06-google-scholar-scraping.html</guid>
+  <pubDate>Sat, 05 Feb 2022 18:30:00 GMT</pubDate>
+  <media:content url="https://drganghe.github.io/quarto-academic-website-template/files/images/google_scholar_logo.png" medium="image" type="image/png" height="24" width="144"/>
+</item>
+<item>
+  <title>Translate using Google Translate</title>
+  <dc:creator>Purushottam Mohanty</dc:creator>
+  <link>https://drganghe.github.io/quarto-academic-website-template/posts/2022-01-18-gcp-translate.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://latex.codecogs.com/png.latex?~"></p>
+<p>This is a short write-up for beginners who want to use the Google Cloud Platform (GCP) Translation Client API to translate one or multiple variables from a dataset.</p>
+<p>The <a href="&quot;https://cloud.google.com/translate&quot;">GCP Translate API</a> can be used for quick and effective translation. The Basic API is free to use upto 500,000 characters per month and thereafter carries a cost of 20 USD for each 1 million character. There are also advanced, media and auto ML translate APIs which is beyond the scope of the article. Note that if you translate a string or text without specifying the source language, the characters are only counted once towards the quota. There’s no additional cost of detecting the language. However, explicitly detecting source language count towards the quota.</p>
+<p>Google provides an official translation API for Python and that is what the following blog uses. First of all we are going to setup a GCP account and create our credentials.</p>
+<ol type="1">
+<li>Go to <a href="&quot;https://cloud.google.com&quot;">Google Cloud</a> and sign in using your Google Account.<br>
+</li>
+<li>Once you are in your dashboard, go to the top bar and create a new project.<br>
+</li>
+<li>Then click billing and then setup billing for the project. You would ideally need your credit card to set it up. (Don’t worry you will not be charged for any request beyond your quota unless to move to a paid account. The APIs will provide an error if you exceed your quota and will not proceed further without converting to a paid account.) Additionally, at the time of writing this post, Google provided a joining credit of 300 USD which can be used.<br>
+</li>
+<li>Once billing has been setup, select the “APIs and Services” option in the right side menu and search for “Translate API” and click “Enable”.<br>
+</li>
+<li>Select “IAM and Admin” and then “Service Account”.<br>
+</li>
+<li>Create a Service Account and then create keys. (The keys automatically get downloaded as a json file. You cannot download the keys again so keep it somewhere safe in your local machine.)</li>
+</ol>
+<p>Then we shall download the required packages directly from terminal in case you haven’t downloaded these previously. Simply run these code in terminal.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span> python3 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>m pip install pandas</span>
+<span id="cb1-2"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span> python3 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>m pip install numpy</span>
+<span id="cb1-3"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span> python3 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>m pip install google<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>cloud<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>translate</span></code></pre></div>
+</div>
+<section id="import-necessary-packages" class="level3">
+<h3 class="anchored" data-anchor-id="import-necessary-packages">Import Necessary Packages</h3>
+<p>Now run the following chunk directly in Python to import the libraries.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb2-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb2-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> json</span>
+<span id="cb2-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> google.cloud <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> translate</span></code></pre></div>
+</div>
+</section>
+<section id="setup-gcp-client-credentials" class="level3">
+<h3 class="anchored" data-anchor-id="setup-gcp-client-credentials">Setup GCP Client Credentials</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># set service account credentials</span></span>
+<span id="cb3-2">client_credentials <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> json.load(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">open</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"FULL_PATH_TO_KEY.json"</span>))</span>
+<span id="cb3-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># set project id and build client</span></span>
+<span id="cb3-4">project_id <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> client_credentials[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'project_id'</span>]</span>
+<span id="cb3-5"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">assert</span> project_id</span>
+<span id="cb3-6">parent <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"projects/</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>project_id<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb3-7">client <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> translate.TranslationServiceClient()</span></code></pre></div>
+</div>
+</section>
+<section id="getting-all-language-codes" class="level3">
+<h3 class="anchored" data-anchor-id="getting-all-language-codes">Getting all Language Codes</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Get all languages</span></span>
+<span id="cb4-2">response <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> client.get_supported_languages(parent <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> parent, display_language_code <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"en"</span>)</span>
+<span id="cb4-3">languages <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> response.languages</span>
+<span id="cb4-4"></span>
+<span id="cb4-5"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f" Languages: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(languages)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> "</span>.center(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-"</span>))</span>
+<span id="cb4-6"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> language <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> languages:</span>
+<span id="cb4-7">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>language<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>language_code<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\t</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>language<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>display_name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="translate-example" class="level3">
+<h3 class="anchored" data-anchor-id="translate-example">Translate Example</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># GCP translate</span></span>
+<span id="cb5-2">sample_text <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bonjour"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Oui"</span>]</span>
+<span id="cb5-3">target_language_code <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"en"</span></span>
+<span id="cb5-4"></span>
+<span id="cb5-5">response <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> client.translate_text(</span>
+<span id="cb5-6">    contents <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> sample_text,</span>
+<span id="cb5-7">    target_language_code <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> target_language_code,</span>
+<span id="cb5-8">    parent <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> parent,</span>
+<span id="cb5-9">)</span>
+<span id="cb5-10"></span>
+<span id="cb5-11"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> translation <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> response.translations:</span>
+<span id="cb5-12">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(translation.translated_text)</span></code></pre></div>
+</div>
+</section>
+<section id="import-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="import-dataset">Import Dataset</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># load dataset as pandas dataframe</span></span>
+<span id="cb6-2">input_df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_stata(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PATH_TO_DATASET.dta"</span>)</span>
+<span id="cb6-3"></span>
+<span id="cb6-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># tidy dataset (remove line separators from data)</span></span>
+<span id="cb6-5">input_df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> input_df.replace(<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r'\r'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">''</span>, regex<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)</span>
+<span id="cb6-6">input_df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> input_df.replace(<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r'\n'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">''</span>, regex<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)</span>
+<span id="cb6-7"></span>
+<span id="cb6-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># GCP translate API doesn't support empty strings (to avoid errors)</span></span>
+<span id="cb6-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># identify empty rows in variable</span></span>
+<span id="cb6-10">input_df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'french_var_empty'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.where(input_df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'french_var'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>) </span>
+<span id="cb6-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># set a fake string to avoid errors</span></span>
+<span id="cb6-12">input_df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'french_var'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.where(input_df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'french_var'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1"</span>, input_df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'french_var'</span>]) </span></code></pre></div>
+</div>
+</section>
+<section id="translate-from-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="translate-from-dataset">Translate from Dataset</h3>
+<p>The GCP translate API doesn’t accept large chunks of text hence we divide the data into batches of 200 rows and translate within a loop until we exhaust the entire length of the dataframe.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># set empty translated list</span></span>
+<span id="cb7-2">translated_output_list <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb7-3"></span>
+<span id="cb7-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># translate in chunks</span></span>
+<span id="cb7-5">x1 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb7-6">x2 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span></span>
+<span id="cb7-7"></span>
+<span id="cb7-8"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span> x1 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(input_df):</span>
+<span id="cb7-9">    input_text <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> input_df[x1:x2][<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'french_var'</span>]</span>
+<span id="cb7-10">    target_language_code <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"en"</span></span>
+<span id="cb7-11">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># translate </span></span>
+<span id="cb7-12">    response <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> client.translate_text(</span>
+<span id="cb7-13">        contents <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> input_text,</span>
+<span id="cb7-14">        target_language_code <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> target_language_code,</span>
+<span id="cb7-15">        parent <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> parent,</span>
+<span id="cb7-16">    )</span>
+<span id="cb7-17">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># append to list</span></span>
+<span id="cb7-18">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> n <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(response.translations)):</span>
+<span id="cb7-19">        translated_output <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> response.translations[n].translated_text</span>
+<span id="cb7-20">        translated_output_list.append(translated_output)</span>
+<span id="cb7-21">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># update counter</span></span>
+<span id="cb7-22">    x1 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> x1 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span></span>
+<span id="cb7-23">    x2 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> x1 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span></span></code></pre></div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>Python</category>
+  <guid>https://drganghe.github.io/quarto-academic-website-template/posts/2022-01-18-gcp-translate.html</guid>
+  <pubDate>Mon, 17 Jan 2022 18:30:00 GMT</pubDate>
+  <media:content url="https://drganghe.github.io/quarto-academic-website-template/files/images/Google_Translate_logo.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
   <title>Can quantum-mechanical description of physical reality be considered complete?</title>
@@ -146,7 +1050,7 @@ Complete?”</span> <em>Physical Review</em> 47 (7938): 777–80. <a href="https
 </div></div></section></div> ]]></description>
   <category>paper</category>
   <guid>https://drganghe.github.io/quarto-academic-website-template/posts/paper-title/</guid>
-  <pubDate>Wed, 15 May 1935 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 14 May 1935 18:30:00 GMT</pubDate>
   <media:content url="https://drganghe.github.io/quarto-academic-website-template/posts/paper-title/featured.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
