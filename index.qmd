@@ -31,22 +31,7 @@ about:
 #      target: _blank
 
 
-listing:
-  - id: recent-posts
-    contents: 
-      - posts
-      - posts/post-links.yml
-    exclude:
-      title: ""
-    type: grid
-    max-items: 3
-#    image-height: 150px
-    page-size: 3 #set same as max-times to remove the page number setting
-    fields: [image, date, title, subtitle]
-    max-description-length: 75
-    sort: 
-      - "date desc"
-      - "title asc"
+
 ---
 
 :::{#hero-heading}
@@ -58,11 +43,3 @@ I'm Purushottam Mohanty, a 2nd year PhD student in Economics at Duke University.
 - PhD, Univerisity
 
 :::
-
-## Recent Posts
-Check out the latest and &nbsp;[More »](/posts.qmd)
-
-:::{#recent-posts}
-:::
-
-<p align="right">[All Posts »](/posts.qmd)</p>
