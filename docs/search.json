@@ -2,9 +2,9 @@
   {
     "objectID": "posts.html",
     "href": "posts.html",
-    "title": "What’s New & Updated",
+    "title": "Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nQuarto Academic Website Examples and Tips\n\n\n\n\n\n\nnews\n\n\n\nExamples and tips for Quarto Academic Website\n\n\n\n\n\nOct 15, 2024\n\n\nDr. Gang He\n\n\n\n\n\n\n\n\n\n\n\n\nEvent item\n\n\n\n\n\n\nevent\n\n\npresentation\n\n\n\nAbout Event item.\n\n\n\n\n\nSep 3, 2024\n\n\nEvent\n\n\n\n\n\n\n\n\n\n\n\n\nNews item\n\n\n\n\n\n\nnews\n\n\n\nAbout new item\n\n\n\n\n\nJun 24, 2024\n\n\nNews\n\n\n\n\n\n\n\n\n\n\n\n\nWeb Scraping Publications from Google Scholar\n\n\n\n\n\n\nR\n\n\n\nExtract title, citation count and year of publications for an author from Google Scholar.\n\n\n\n\n\nFeb 6, 2022\n\n\nPurushottam Mohanty\n\n\n\n\n\n\n\n\n\n\n\n\nTranslate using Google Translate\n\n\n\n\n\n\nPython\n\n\n\nTranslate using Google Cloud Platform (GCP) Translate API\n\n\n\n\n\nJan 18, 2022\n\n\nPurushottam Mohanty\n\n\n\n\n\n\n\n\n\n\n\n\nCan quantum-mechanical description of physical reality be considered complete?\n\n\nPhysical Review\n\n\n\npaper\n\n\n\nOne is thus led to conclude that the description of reality as given by a wave function is not complete.\n\n\n\n\n\nMay 15, 1935\n\n\nAlbert Einstein, Boris Podolsky, Nathan Rosen\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nWeb Scraping Publications from Google Scholar\n\n\n\n\n\n\nR\n\n\n\nExtract title, citation count and year of publications for an author from Google Scholar.\n\n\n\n\n\nFeb 6, 2022\n\n\nPurushottam Mohanty\n\n\n\n\n\n\n\n\n\n\n\n\nTranslate using Google Translate\n\n\n\n\n\n\nPython\n\n\n\nTranslate using Google Cloud Platform (GCP) Translate API\n\n\n\n\n\nJan 18, 2022\n\n\nPurushottam Mohanty\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "publications.html",
@@ -93,30 +93,30 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Quarto Academic, PhD",
+    "title": "Purushottam Mohanty",
     "section": "",
-    "text": "Lab\n  \n  \n    \n     Uprofile\n  \n  \n    \n     E-mail\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     YouTube\n  \n  \n      ORCID\n  \n  \n      Web of Science\n  \n  \n      Scopus\n  \n  \n      Google Scholar\n  \n\n  \n  \nI’m a Quarto Academeic Website Template adapted by Dr. Gang He.\nI’m a template that you can fork to build your own website with easy adaptation and deployment.\n\nStar this repository so you can easily come back to the template\n\nFolk this tempate and rename it to yourgithubusername.github.io\n\nUpdate and edit _quarto.yml file for website setup\n\nUpdate and add contents to /posts, teaching.qmd, projects.yml, and people.qmd and /people as needed.\nRender and preview your website and publish it to your GitHub.\nPolish and fix any issues\n\nEnjoy your website!\n\n\n\n\nResearcher, Univerisity\n\n\n\n\n\nPhD, Univerisity"
+    "text": "Lab\n  \n  \n    \n     Uprofile\n  \n  \n    \n     E-mail\n  \n  \n    \n     LinkedIn\n  \n\n  \n  \nI’m Purushottam Mohanty, a 2nd year PhD student in Economics at Duke University. I’m interested in topics in development economics and political economy.\n\n\n\nPhD, Univerisity"
   },
   {
     "objectID": "index.html#experience",
     "href": "index.html#experience",
-    "title": "Quarto Academic, PhD",
+    "title": "Purushottam Mohanty",
     "section": "",
     "text": "Researcher, Univerisity"
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
-    "title": "Quarto Academic, PhD",
+    "title": "Purushottam Mohanty",
     "section": "",
     "text": "PhD, Univerisity"
   },
   {
     "objectID": "index.html#recent-posts",
     "href": "index.html#recent-posts",
-    "title": "Quarto Academic, PhD",
+    "title": "Purushottam Mohanty",
     "section": "Recent Posts",
-    "text": "Recent Posts\nCheck out the latest  Papers ,  News ,  Events , and  More »\n\n\n\n\n\n\n\n\n\n\nQuarto Academic Website Examples and Tips\n\n\n\nOct 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEvent item\n\n\n\nSep 3, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNews item\n\n\n\nJun 24, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\nAll Posts »"
+    "text": "Recent Posts\nCheck out the latest and  More »\n\n\n\n\n\n\n\n\n\n\nQuarto Academic Website Examples and Tips\n\n\n\nOct 15, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeb Scraping Publications from Google Scholar\n\n\n\nFeb 6, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTranslate using Google Translate\n\n\n\nJan 18, 2022\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\nAll Posts »"
   },
   {
     "objectID": "people.html",
