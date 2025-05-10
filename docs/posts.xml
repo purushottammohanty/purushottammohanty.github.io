@@ -5,13 +5,13 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Purushottam Mohanty</title>
+<title>Home</title>
 <link>https://drganghe.github.io/quarto-academic-website-template/posts.html</link>
 <atom:link href="https://drganghe.github.io/quarto-academic-website-template/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <image>
 <url>https://quarto.org/quarto.png</url>
-<title>Purushottam Mohanty</title>
+<title>Home</title>
 <link>https://drganghe.github.io/quarto-academic-website-template/posts.html</link>
 </image>
 <generator>quarto-1.5.57</generator>

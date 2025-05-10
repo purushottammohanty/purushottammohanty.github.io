@@ -11,20 +11,12 @@ about:
   template: trestles
   image-width: 70%
   links:
-    - icon: sun
-      text: Lab
-      href: https://www.github.com
-      target: _blank
-    - icon: globe
-      text: Uprofile
-      href: https://baruch.cuny.edu
-      target: _blank
     - icon: envelope
       text: E-mail
-      href: mailto:email@gmail.com    
+      href: mailto:purushottam.mohanty@duke.edu   
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/purushottam-mohanty/
       target: _blank
 #    - text: "{{< ai orcid >}} ORCID"   # use academic icons, "" are needed, you also need to install the fontawesome extension
 #      href: https://orcid.org
@@ -36,10 +28,14 @@ about:
 
 :::{#hero-heading}
 
-I'm Purushottam Mohanty, a 2nd year PhD student in Economics at Duke University. I'm interested in topics in development economics and political economy. 
+I'm Purushottam Mohanty, a 2nd year PhD student in Economics at [Duke University](https://econ.duke.edu). I'm interested in topics in development economics and political economy.  
+
+Before starting my PhD, I was a predoc for Prof. [Oeindrila Dube](http://odube.net) at the [Becker Friedman Institute, University of Chicago](http://bfi.uchicago.edu). Prior to that, I worked as a Senior Data Associate at [Good Business Lab](http://goodbusinesslab.org), in India.  
 
 ## Education
 
-- PhD, Univerisity
+- PhD in Economics, Duke University (2024-)
+- Masters in Analysis and Policy in Economics (APE), Paris School of Economics (2018-20)
+- B.A. (Honors) Economics, University of Delhi (2015-18)
 
 :::
