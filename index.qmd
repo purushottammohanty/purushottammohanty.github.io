@@ -16,7 +16,7 @@ about:
       href: mailto:purushottam.mohanty@duke.edu   
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/purushottam-mohanty/
+      href: https://www.linkedin.com/in/purushottam-mohanty/
       target: _blank
 #    - text: "{{< ai orcid >}} ORCID"   # use academic icons, "" are needed, you also need to install the fontawesome extension
 #      href: https://orcid.org
@@ -35,7 +35,7 @@ Before starting my PhD, I was a predoc for Prof. [Oeindrila Dube](http://odube.n
 ## Education
 
 - PhD in Economics, Duke University (2024-)
-- Masters in Analysis and Policy in Economics (APE), Paris School of Economics (2018-20)
+- Masters in Economics (APE), Paris School of Economics (2018-20)
 - B.A. (Honors) Economics, University of Delhi (2015-18)
 
 :::
