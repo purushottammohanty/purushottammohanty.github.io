@@ -6,20 +6,20 @@
       version="2.0">
 <channel>
 <title>Home</title>
-<link>https://drganghe.github.io/quarto-academic-website-template/posts.html</link>
-<atom:link href="https://drganghe.github.io/quarto-academic-website-template/posts.xml" rel="self" type="application/rss+xml"/>
+<link>https://purushottammohanty.github.io/posts.html</link>
+<atom:link href="https://purushottammohanty.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <image>
 <url>https://quarto.org/quarto.png</url>
 <title>Home</title>
-<link>https://drganghe.github.io/quarto-academic-website-template/posts.html</link>
+<link>https://purushottammohanty.github.io/posts.html</link>
 </image>
 <generator>quarto-1.5.57</generator>
 <lastBuildDate>Sat, 05 Feb 2022 18:30:00 GMT</lastBuildDate>
 <item>
   <title>Web Scraping Publications from Google Scholar</title>
   <dc:creator>Purushottam Mohanty</dc:creator>
-  <link>https://drganghe.github.io/quarto-academic-website-template/posts/2022-02-06-google-scholar-scraping.html</link>
+  <link>https://purushottammohanty.github.io/posts/2022-02-06-google-scholar-scraping.html</link>
   <description><![CDATA[ 
 
 
@@ -506,14 +506,14 @@ font-style: inherit;">bind_rows</span>(df_final)</span></code></pre></div>
 
  ]]></description>
   <category>R</category>
-  <guid>https://drganghe.github.io/quarto-academic-website-template/posts/2022-02-06-google-scholar-scraping.html</guid>
+  <guid>https://purushottammohanty.github.io/posts/2022-02-06-google-scholar-scraping.html</guid>
   <pubDate>Sat, 05 Feb 2022 18:30:00 GMT</pubDate>
-  <media:content url="https://drganghe.github.io/quarto-academic-website-template/files/images/google_scholar_logo.png" medium="image" type="image/png" height="24" width="144"/>
+  <media:content url="https://purushottammohanty.github.io/files/images/google_scholar_logo.png" medium="image" type="image/png" height="24" width="144"/>
 </item>
 <item>
   <title>Translate using Google Translate</title>
   <dc:creator>Purushottam Mohanty</dc:creator>
-  <link>https://drganghe.github.io/quarto-academic-website-template/posts/2022-01-18-gcp-translate.html</link>
+  <link>https://purushottammohanty.github.io/posts/2022-01-18-gcp-translate.html</link>
   <description><![CDATA[ 
 
 
@@ -916,9 +916,9 @@ font-style: inherit;">200</span></span></code></pre></div>
 
  ]]></description>
   <category>Python</category>
-  <guid>https://drganghe.github.io/quarto-academic-website-template/posts/2022-01-18-gcp-translate.html</guid>
+  <guid>https://purushottammohanty.github.io/posts/2022-01-18-gcp-translate.html</guid>
   <pubDate>Mon, 17 Jan 2022 18:30:00 GMT</pubDate>
-  <media:content url="https://drganghe.github.io/quarto-academic-website-template/files/images/Google_Translate_logo.png" medium="image" type="image/png" height="144" width="144"/>
+  <media:content url="https://purushottammohanty.github.io/files/images/Google_Translate_logo.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 </channel>
 </rss>
